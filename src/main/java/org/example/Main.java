@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Collection;
 import java.util.Comparator;
 
 public class Main {
@@ -21,5 +22,39 @@ public class Main {
         });
 
         System.out.println(myArrayList1);
+
+
+        MyArrayList<Integer> myArrayList2 = new MyArrayList<>();
+
+        myArrayList2.add(1);
+        myArrayList2.add(2);
+        myArrayList2.add(3);
+        myArrayList2.add(4);
+        myArrayList2.add(5);
+
+        MyArrayList<Integer> myArrayList3 = new MyArrayList<>();
+
+        myArrayList3.add(6);
+        myArrayList3.add(7);
+        myArrayList3.add(8);
+        myArrayList3.add(9);
+        myArrayList3.add(10);
+        myArrayList3.add(6);
+        myArrayList3.add(7);
+        myArrayList3.add(8);
+        myArrayList3.add(9);
+        myArrayList3.add(10);
+        myArrayList3.add(6);
+        myArrayList3.add(7);
+        myArrayList3.add(8);
+        myArrayList3.add(9);
+        myArrayList3.add(10);
+
+        myArrayList2.addAll(myArrayList3);
+
+        System.out.println(myArrayList2);
+
+
+
     }
 }

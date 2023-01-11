@@ -1,13 +1,20 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 
 public class MyArrayList<T> {
 
     private T[] list;
+
+    public T[] getList() {
+        return list;
+    }
+
     private int size;
     private final int DEFAULT_CAPACITY = 10;
+
 
     public MyArrayList(int capacity) {
         if (capacity < 1) {
@@ -72,8 +79,15 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(Arrays.copyOf(list, size));
+        StringBuilder result = new StringBuilder("[" + list[0]);
+
+        for (int i = 1; i < size; i++) {
+            result.append(", ").append(list[i]);
+        }
+        result.append("]");
+        return result.toString();
     }
+
 
     public void sort(Comparator<T> c) {
         bubbleSortArrayList(list,c);
@@ -101,9 +115,16 @@ public class MyArrayList<T> {
         }
     }
 
-    public int size() {
-        return this.size;
+    public int getSize() {
+        return size;
     }
 
+    public void addAll(MyArrayList<? extends T> c) {
+        T[] a = c.getList();
+        int numNew = c.getSize();
+        ensureLength(size + numNew);
+        System.arraycopy(a, 0, list, size, numNew);
+        size += numNew;
+    }
 
 }
